@@ -6,9 +6,10 @@
   "scripts": {
     "clean": "rimraf build && rimraf dist",
     "copy-to-dist": "cpy '**/*.js' '../dist/' --cwd=build --parents",
-    "predist": "npm run clean && npm test",
+    "predist": "npm run lint && npm test && npm run clean",
     "dist": "npm run compile && npm run copy-to-dist",
     "compile": "tsc",
+    "lint": "tslint --project tsconfig.json",
     "start": "ts-node src/index.ts",
     "start:w": "nodemon --watch src -e ts --ignore '*.spec.ts' --exec ts-node src/index.ts",
     "test": "mocha --compilers ts:ts-node/register src/**/**.spec.ts",
@@ -26,6 +27,7 @@
     "nodemon": "^1.11.0",
     "rimraf": "^2.6.1",
     "ts-node": "^3.3.0",
+    "tslint": "^5.6.0",
     "typescript": "^2.4.2"
   }
 }
