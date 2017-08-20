@@ -12,8 +12,25 @@
     "lint": "tslint --project tsconfig.json",
     "start": "ts-node src/index.ts",
     "start:w": "nodemon --watch src -e ts --ignore '*.spec.ts' --exec ts-node src/index.ts",
-    "test": "mocha --compilers ts:ts-node/register src/**/**.spec.ts",
+    "test": "nyc mocha --timeout=3000",
     "test:w": "npm run test -- -w"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true
   },
   "author": "William Ghelfi <william@williamghelfi.com>",
   "license": "ISC",
@@ -25,7 +42,9 @@
     "cpy-cli": "^1.0.1",
     "mocha": "^3.5.0",
     "nodemon": "^1.11.0",
+    "nyc": "^11.1.0",
     "rimraf": "^2.6.1",
+    "source-map-support": "^0.4.16",
     "ts-node": "^3.3.0",
     "tslint": "^5.6.0",
     "typescript": "^2.4.2"
