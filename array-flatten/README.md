@@ -32,4 +32,6 @@ Runs the test suite with a coverage report
 Runs the test suite, watches for changes in `.spec.ts` files, and shows a coverage report on exit (`CTRL-C`)
 
 `npm run dist`  
-Builds a distribution in the `dist` directory 
+Builds a distribution in the `dist` directory
+
+After a successful dist, you can run it with `node dist/index.js`.
