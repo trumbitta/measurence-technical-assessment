@@ -4,15 +4,26 @@
   "description": "Write some code that will flatten an array of arbitrarily nested arrays of integers into a flat array of integers. e.g. [[1,2,[3]],4] -> [1,2,3,4]",
   "main": "index.js",
   "scripts": {
-    "test": "mocha src/**/**.spec.js",
+    "clean": "rimraf build",
+    "compile": "tsc",
+    "start": "ts-node src/index.ts",
+    "start:w": "nodemon --watch src -e ts --ignore '*.spec.ts' --exec ts-node src/index.ts",
+    "test": "mocha --compilers ts:ts-node/register src/**/**.spec.ts",
     "test:w": "npm run test -- -w"
   },
   "author": "William Ghelfi <william@williamghelfi.com>",
   "license": "ISC",
   "devDependencies": {
+    "@types/chai": "^4.0.3",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^8.0.24",
     "chai": "^4.1.1",
     "eslint": "^4.5.0",
     "eslint-plugin-mocha": "^4.11.0",
-    "mocha": "^3.5.0"
+    "mocha": "^3.5.0",
+    "nodemon": "^1.11.0",
+    "rimraf": "^2.6.1",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.4.2"
   }
 }
