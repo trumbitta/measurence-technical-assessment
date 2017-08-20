@@ -18,6 +18,7 @@
     "@types/mocha": "^2.2.41",
     "@types/node": "^8.0.24",
     "chai": "^4.1.1",
+    "cpy-cli": "^1.0.1",
     "eslint": "^4.5.0",
     "eslint-plugin-mocha": "^4.11.0",
     "mocha": "^3.5.0",
